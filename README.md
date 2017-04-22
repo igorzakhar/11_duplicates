@@ -1,7 +1,32 @@
-# Anti-Duplicator
+# Анти-Дупликатор
 
-[TODO. There will be project description]
+Скрипт ищет дублирующие файлы в указанной директории, при этом рекурсивно обходит все вложенные. Результат выводитится на стандартный вывод.
+Дублирующие файлы – это два файла с одинаковым именем и размером.
 
-# Project Goals
+# Как использовать
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+Скрипт принимает на вход путь до директории и проверяет является ли указанный путь директорией. 
+
+Пример запуска в Linux, Python 3.5:
+```#!bash
+$ python duplicates.py <path>
+```
+Пример вывода результатов:
+
+```#!bash
+Filename: Default (Linux).sublime-keymap / size 4204 bytes
+--------------------------------------------------
+/home/user/Files/Default (Linux).sublime-keymap
+/home/user/Files/Temp/Default (Linux).sublime-keymap
+-------------------------------------------------- 
+
+Filename: sublime-text_build-3083_amd64.deb / size 6334076 bytes
+--------------------------------------------------
+/home/user/Files/sublime-text_build-3083_amd64.deb
+/home/user/Files/Temp/sublime-text_build-3083_amd64.deb
+-------------------------------------------------- 
+```
+
+# Цели проекта
+
+Код написан для образовательных целей. Учебный курс для веб-разработчиков - [DEVMAN.org](https://devman.org)
