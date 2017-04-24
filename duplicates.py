@@ -3,7 +3,7 @@ import sys
 from collections import defaultdict, namedtuple
 
 
-File = namedtuple('File', 'name size')
+File_object = namedtuple('File', 'name size')
 
 def walk(directory):
 
