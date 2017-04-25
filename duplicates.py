@@ -13,17 +13,17 @@ def walk(directory):
         for filename in filenames:
             full_path = os.path.join(dirpath, filename)
             file_size = os.path.getsize(full_path)
-            current_file = File(filename, file_size)
+            current_file = File_object(filename, file_size)
             dict_of_path[current_file].append(full_path)
     return dict_of_path
 
 
 def print_duplicates(dict_of_path):
-    for file in dict_of_path:
-        if len(dict_of_path[file]) > 1:
-            print('Filename:', file.name, '/ size', file.size, 'bytes')
+    for current_file in dict_of_path:
+        if len(dict_of_path[current_file]) > 1:
+            print('Filename:', current_file.name, '/ size', current_file.size, 'bytes')
             print('-' * 50)
-            for path in dict_of_path[file]:
+            for path in dict_of_path[current_file]:
                 print(path)
             print('-' * 50,'\n')
 
