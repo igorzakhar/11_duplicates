@@ -48,16 +48,11 @@ def output_results(dict_of_duplicates):
 
 
 if __name__ == '__main__':
-    path_collection = enumerate_path()
-    dupes = get_duplicates(path_collection)
-    output_results(dupes)
-    
-"""
     if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
-        filepath = sys.argv[1]
-        dict_of_path = walk(filepath)
-        print_duplicates(dict_of_path)
+        path = sys.argv[1]
+        path_collection = enumerate_path(path)
+        dupes = get_duplicates(path_collection)
+        output_results(dupes)
     else:
         print("Path not found.")
         print("Example launch: python duplicates.py <path>")
-    """
