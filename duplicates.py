@@ -30,14 +30,14 @@ def get_duplicates(path_to_files_list):
 
 
 def print_results_to_stdout(dict_of_duplicates):
-    separation_line_length = 50
+    separation_line = '-' * 50
     for duplicate_file in dict_of_duplicates:
         print('Filename:', duplicate_file.name,
               '/ size', duplicate_file.size, 'bytes')
-        print('-' * separation_line_length)
+        print(separation_line)
         for path in dict_of_duplicates[duplicate_file]:
             print(path)
-        print('-' * separation_line_length, '\n')
+        print(separation_line, '\n')
 
 
 def main():
