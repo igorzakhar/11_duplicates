@@ -1,20 +1,9 @@
 import os
 import sys
-import hashlib
 from collections import defaultdict, namedtuple
 
 
-File_attr = namedtuple('File', 'name size checksum')
-
-
-def get_md5_checksum(path_to_file, blocksize=65536):
-    checksum = hashlib.md5()
-    with open(path_to_file, 'rb') as fp:
-        buffer = fp.read(blocksize)
-        while len(buffer) > 0:
-            checksum.update(buffer)
-            buffer = fp.read(blocksize)
-    return checksum.hexdigest()
+File_attr = namedtuple('File', 'name size')
 
 
 def get_path_to_files(path):
@@ -31,8 +20,7 @@ def get_duplicates(path_to_files_list):
     for path in path_to_files_list:
         file_name = os.path.basename(path)
         file_size = os.path.getsize(path)
-        checksum = get_md5_checksum(path)
-        compaund_key = File_attr(file_name, file_size, checksum)
+        compaund_key = File_attr(file_name, file_size)
         path_to_files_dict[compaund_key].append(path)
     duplicates = {file: file_paths
                   for file, file_paths
@@ -45,8 +33,7 @@ def print_results_to_stdout(dict_of_duplicates):
     separation_line_length = 50
     for duplicate_file in dict_of_duplicates:
         print('Filename:', duplicate_file.name,
-              '/ size', duplicate_file.size, 'bytes',
-              '/ checksum', duplicate_file.checksum)
+              '/ size', duplicate_file.size, 'bytes')
         print('-' * separation_line_length)
         for path in dict_of_duplicates[duplicate_file]:
             print(path)
