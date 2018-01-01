@@ -14,13 +14,13 @@ $ python duplicates.py <path>
 Пример вывода результатов:
 
 ```#!bash
-Filename: Default (Linux).sublime-keymap / size 4204 bytes
+Filename: Default (Linux).sublime-keymap / size 4204 bytes / checksum 4531bec0288f08d9623c6408c2be7aa2
 --------------------------------------------------
 /home/user/Files/Default (Linux).sublime-keymap
 /home/user/Files/Temp/Default (Linux).sublime-keymap
 -------------------------------------------------- 
 
-Filename: sublime-text_build-3083_amd64.deb / size 6334076 bytes
+Filename: sublime-text_build-3083_amd64.deb / size 6334076 bytes / checksum 4531bec0288f08d9623c6408c2be7aa2
 --------------------------------------------------
 /home/user/Files/sublime-text_build-3083_amd64.deb
 /home/user/Files/Temp/sublime-text_build-3083_amd64.deb
