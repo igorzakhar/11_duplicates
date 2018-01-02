@@ -31,15 +31,18 @@ def get_duplicate_files(path_to_files_list):
     return duplicate_files
 
 
-def print_results_to_stdout(duplicate_files_dict):
+def print_duplicates(duplicate_files_dict):
     separation_line = '-' * 50
-    for duplicate_file in duplicate_files_dict:
-        print('Filename:', duplicate_file.name, '/ size',
-              duplicate_file.size, 'bytes')
-        print(separation_line)
-        for path in duplicate_files_dict[duplicate_file]:
-            print(path)
-        print(separation_line, '\n')
+    if len(duplicate_files_dict):
+        for duplicate_file in duplicate_files_dict:
+            print('Filename:', duplicate_file.name, '/ size',
+                  duplicate_file.size, 'bytes')
+            print(separation_line)
+            for path in duplicate_files_dict[duplicate_file]:
+                print(path)
+            print(separation_line, '\n')
+    else:
+        print('Duplicates not found')
 
 
 def main():
@@ -47,10 +50,7 @@ def main():
         path = sys.argv[1]
         path_to_files_list = get_path_to_files(path)
         duplicate_files = get_duplicate_files(path_to_files_list)
-        if len(duplicate_files):
-            print_results_to_stdout(duplicate_files)
-        else:
-            print('Duplicates not found')
+        print_duplicates(duplicate_files)
     else:
         print('Path not found.')
         print('Example launch: python duplicates.py <path>')
