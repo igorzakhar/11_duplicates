@@ -47,7 +47,7 @@ def main():
         path = sys.argv[1]
         path_to_files_list = get_path_to_files(path)
         duplicate_files = get_duplicate_files(path_to_files_list)
-        if len(duplicate_files) > 0:
+        if len(duplicate_files):
             print_results_to_stdout(duplicate_files)
         else:
             print('Duplicates not found')
